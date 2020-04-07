@@ -69,7 +69,7 @@ void menu(no *prim)
             imprimir(prim);
         }else if(opc == 2) 
         {
-            //inserir(prim, );
+            inserir(prim, );
         }else if(opc == 3) 
         {
             //pesquisar();s
