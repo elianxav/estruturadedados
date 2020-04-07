@@ -53,7 +53,7 @@ void menu(no *prim)
 {
     int opc;
     char x;
-    printf("[1] Imprimir\n");
+    printf("\n[1] Imprimir\n");
     printf("[2] Inserir\n");
     printf("[3] Pesquisar\n");
     printf("[0] Sair\n\n");
@@ -75,7 +75,7 @@ void menu(no *prim)
             //pesquisar();s
         }
 
-        printf("\nInsira qualquer valor: ");
+        printf("\nDigite 1 para continuar: ");
         scanf("%c",&x);
         system("clear");
         menu(prim);
