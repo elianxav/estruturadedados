@@ -1,16 +1,34 @@
+/*
+    ÍNDICE
+[1] criação do no
+[2] método criar
+[3] método imprimir
+[4] método inserir
+[5] método contar
+[6] método maior e menor
+[7] método imprimir o inverso
+[8] menu
+[9] main
+
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 
+// ---------------- [1] criação do no ------------------
 typedef struct tempNo{
     int dado;
     struct tempNo *prox;
     struct tempNo *ant;
 }no;
 
+// ---------------- [2] método criar -------------------
 void criar(no *prim){
     prim->prox = NULL;
 }
 
+// ---------------- [3] método imprimir ----------------
 void imprimir(no *prim){
     if(prim->prox == NULL){
         printf("Vazia");
@@ -24,6 +42,7 @@ void imprimir(no *prim){
     }
 }
 
+// ---------------- [4] método inserir -----------------
 void inserir(no *prim, int v){
     no *novo = (no *) malloc(sizeof(no));
     novo->dado = v;
@@ -41,6 +60,7 @@ void inserir(no *prim, int v){
     }
 }
 
+// ---------------- [5] método contar -----------------
 void contar(no *prim)
 {
     int x=0;
@@ -54,6 +74,7 @@ void contar(no *prim)
     printf("Quantidade de itens na lista: %i",x);
 }
 
+// ------ [6] método que mostra o menor e o maior valor ------
 void maiorMenor(no *prim)
 {
     int maior, menor;
@@ -79,7 +100,8 @@ void maiorMenor(no *prim)
     printf("O maior valor é o %i e o menor é o %i", maior, menor);
 }
 
-void caiAoContrario(no *prim){
+// --------- [7] método imprimir o inverso --------
+void imprimirInverso(no *prim){
     if(prim->prox == NULL){
         printf("Vazia");
     }else{
@@ -98,6 +120,7 @@ void caiAoContrario(no *prim){
     }
 }
 
+// ---------------- [8] menu ---------------------
 void menu(no *prim, int opc)
 {
     int val;
@@ -107,7 +130,7 @@ void menu(no *prim, int opc)
     printf("[2] Inserir\n");
     printf("[3] Contar\n");
     printf("[4] Mostrar maior e menor valor\n");
-    printf("[5] Imprimir de trás para frente\n");
+    printf("[5] Imprimir o inverso\n");
     printf("[0] Sair\n\n");
     printf("Opção: ");
     scanf("%i",&opc);
@@ -132,7 +155,7 @@ void menu(no *prim, int opc)
             maiorMenor(prim);
         }else if(opc == 5) 
         {
-            caiAoContrario(prim);
+            imprimirInverso(prim);
         }
 
         printf("\n\n[1] continuar\n\nentrada: ");
@@ -142,6 +165,7 @@ void menu(no *prim, int opc)
     }
 }
 
+// ---------------- [9] main ---------------- 
 void main(){
     no *prim = (no *) malloc(sizeof(no));
     criar(prim);
